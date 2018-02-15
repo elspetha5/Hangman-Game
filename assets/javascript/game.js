@@ -19,14 +19,17 @@ var word = document.getElementById("word");
 var answer = ["c", "a", "t"];
 
 
+
 document.onkeyup = function (event) {
+    var userGuess = event.key;
     for (var i = 0; i < answer.length; i++) {
         var space = document.createElement("span");
         space.innerHTML = "_ ";
         word.appendChild(space);
     }
-    removeEventListener
-    if (event.key === answer[i]) {
-        word.answer[i].textContent = event.key;
+
+    if (userGuess === answer[0]) {
+        space.removeChild(space.childNodes[0]);
+        space.innerHTML = answer[0];
     }
 };
