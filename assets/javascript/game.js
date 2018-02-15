@@ -9,3 +9,24 @@
 
 
 // array of options 
+
+//var wins = document.getElementById("#wins");
+var word = document.getElementById("word");
+//var guesses = document.getElementById("#guesses");
+//var letters = document.getElementById("#letters");
+
+// var userGuess = event.key;
+var answer = ["c", "a", "t"];
+
+
+document.onkeyup = function (event) {
+    for (var i = 0; i < answer.length; i++) {
+        var space = document.createElement("span");
+        space.innerHTML = "_ ";
+        word.appendChild(space);
+    }
+    removeEventListener
+    if (event.key === answer[i]) {
+        word.answer[i].textContent = event.key;
+    }
+};
