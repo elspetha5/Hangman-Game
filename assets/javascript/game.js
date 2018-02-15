@@ -22,14 +22,20 @@ var answer = ["c", "a", "t"];
 
 document.onkeyup = function (event) {
     var userGuess = event.key;
+    //make lowercase
+    //make it happen only once
     for (var i = 0; i < answer.length; i++) {
         var space = document.createElement("span");
         space.innerHTML = "_ ";
         word.appendChild(space);
     }
 
+    //how to insert correct letter in correct spot
     if (userGuess === answer[0]) {
+        var rightChoice = document.createElement("div");
+        rightChoice.id = "new"
+        var getNew = document.getElementById("new");
         space.removeChild(space.childNodes[0]);
-        space.innerHTML = answer[0];
+        getNew.innerHTML = answer[0];
     }
 };
