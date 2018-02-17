@@ -12,13 +12,15 @@ document.onclick = function (event) {
 
 //user guesses
 document.onkeyup = function (event) {
-    //pick a random word from answer array
-    var userGuess = event.key;
+    var alpha = event.key;
+    var userGuess = alpha.toLowerCase();
     for (var i = 0; i < pickWord.length; i++) {
-        if (userGuess === pickWord[i]) {
+        if (userGuess !== pickWord[i]) {
             var space = document.createElement("span");
             space.innerHTML = "_ ";
-
+            word.appendChild(space);
+        } else {
+            pickWord.innerHTML = pickWord[i];
         }
 
     }
@@ -27,6 +29,8 @@ document.onkeyup = function (event) {
 };
 
 //if guess is right then put letter, else put space
+//1 function to check character, one to create box btn.setAttribute("id", "position", + i)
+//grab with position[1], position[2], etc.
 
 function gamePlay() {
     //onkeyup show correct guesses on correct space
