@@ -18,19 +18,26 @@ document.onkeyup = function (event) {
         //choose a random word
         var idx = Math.floor(Math.random() * answer.length)
         pickWord = answer[idx];
-        var wordElements = new Array(pickWord.length);
-        console.log(wordElements.length);
+        for (var i = 0; i < pickWord.length; i++) {
+            var space = document.createElement("span");
+            space.innerHTML = "_ ";
+            word.appendChild(space);
+        }
+        
         guessesLeft.innerHTML = 12;
     } else if (wordText.length > 0) {
+        var wordElements = new Array(pickWord.length);
+        console.log(wordElements, pickWord);
         for (var i = 0; i < wordElements.length; i++) {
             if (userGuess != wordElements[i]) {
                 var space = document.createElement("span");
                 space.innerHTML = "_ ";
-                word.appendChild(space);
+                wordElements[i].appendChild(space);
                 guessesLeft--;
             } else if (userGuess == wordElements[i]) {
                 var correct = document.createElement("span");
                 correct.innerHTML = userGuess;
+                wordElements[i].userGuess;
             }
         }
 
