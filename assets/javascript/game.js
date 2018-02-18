@@ -5,6 +5,8 @@ var guessesLeft = document.getElementById("guessesLeft");
 var letters = document.getElementById("letters")
 
 var answer = ["cat", "doga", "tigera"];
+var wordElements;
+var wordAnswer;
 
 document.onkeyup = function (event) {
     var alpha = event.key;
@@ -18,7 +20,8 @@ document.onkeyup = function (event) {
         //choose a random word
         var idx = Math.floor(Math.random() * answer.length)
         pickWord = answer[idx];
-        var wordElements = pickWord.split("");
+        wordElements = pickWord.split("");
+        wordAnswer = array[wordElements.length];
         for (var i = 0; i < wordElements.length; i++) {
             var space = document.createElement("span");
             space.innerHTML = "_ ";
@@ -26,12 +29,12 @@ document.onkeyup = function (event) {
         }
         guessesLeft.innerHTML = 12;
     } else if (wordText.length > 0) {
-        var wordElements = pickWord.split("");
         console.log(wordElements, pickWord);
         for (var i = 0; i < wordElements.length; i++) {
             if (userGuess === wordElements[i]) {
-                wordElements[i].innerHTML = userGuess;
-            } else { };
+                console.log("yep");
+                word.innerHTML = wordElements[i];
+            } else {console.log("nope");};
         }
 
     }
