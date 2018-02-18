@@ -23,21 +23,20 @@ document.onkeyup = function (event) {
             space.innerHTML = "_ ";
             word.appendChild(space);
         }
-        
         guessesLeft.innerHTML = 12;
     } else if (wordText.length > 0) {
-        var wordElements = new Array(pickWord.length);
+        var wordElements = pickWord.split("");
         console.log(wordElements, pickWord);
         for (var i = 0; i < wordElements.length; i++) {
             if (userGuess != wordElements[i]) {
                 var space = document.createElement("span");
                 space.innerHTML = "_ ";
-                wordElements[i].appendChild(space);
+                word.appendChild(space);
                 guessesLeft--;
             } else if (userGuess == wordElements[i]) {
                 var correct = document.createElement("span");
                 correct.innerHTML = userGuess;
-                wordElements[i].userGuess;
+                word.appendChild(correct);
             }
         }
 
