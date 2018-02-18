@@ -21,21 +21,23 @@ document.onkeyup = function (event) {
         var idx = Math.floor(Math.random() * answer.length)
         pickWord = answer[idx];
         wordElements = pickWord.split("");
-        wordAnswer = array[wordElements.length];
+        wordAnswer = new Array(wordElements.length);
         for (var i = 0; i < wordElements.length; i++) {
             var space = document.createElement("span");
             space.innerHTML = "_ ";
             word.appendChild(space);
         }
         guessesLeft.innerHTML = 12;
-    } else if (wordText.length > 0) {
-        console.log(wordElements, pickWord);
+    } else {
         for (var i = 0; i < wordElements.length; i++) {
             if (userGuess === wordElements[i]) {
-                console.log("yep");
-                word.innerHTML = wordElements[i];
-            } else {console.log("nope");};
+                wordAnswer[i] = userGuess;
+            } else if (wordAnswer[i] === undefined) { 
+                wordAnswer[i] = "_";
+            } else {};
         }
+        console.log(wordAnswer);
+        word.innerHTML = wordAnswer.join(" ");
 
     }
 
