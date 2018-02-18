@@ -48,8 +48,12 @@ document.onkeyup = function (event) {
                 wordAnswer[i] = userGuess;
             } else if (wordAnswer[i] === undefined) {
                 wordAnswer[i] = "_";
+            //supposed to only put incorrect guesses in lettersGuessed array
+            //don't know why it's adding correct ones as well
+            //don't know where to put the guessesLeft so it only decrements once...
             } else if (userGuess != wordElements[i]) {
-                lettersGuessed.push(userGuess);
+                lettersGuessed.push(userGuess[i]);
+                guessesLeft.innerHTML--;
             } else { };
         }
 
@@ -65,7 +69,7 @@ document.onkeyup = function (event) {
         //displays letters guessed and blank spaces remaining on screen
         word.innerHTML = wordAnswer.join(" ");
 
-        //supposed to display incorrect guesses
-        letters.innerHTML = lettersGuessed;
+        //displays incorrect guesses
+        letters.innerHTML = lettersGuessed.join(" ");
     };
 };
