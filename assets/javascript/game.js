@@ -18,7 +18,8 @@ document.onkeyup = function (event) {
         //choose a random word
         var idx = Math.floor(Math.random() * answer.length)
         pickWord = answer[idx];
-        for (var i = 0; i < pickWord.length; i++) {
+        var wordElements = pickWord.split("");
+        for (var i = 0; i < wordElements.length; i++) {
             var space = document.createElement("span");
             space.innerHTML = "_ ";
             word.appendChild(space);
@@ -28,16 +29,9 @@ document.onkeyup = function (event) {
         var wordElements = pickWord.split("");
         console.log(wordElements, pickWord);
         for (var i = 0; i < wordElements.length; i++) {
-            if (userGuess != wordElements[i]) {
-                var space = document.createElement("span");
-                space.innerHTML = "_ ";
-                word.appendChild(space);
-                guessesLeft--;
-            } else if (userGuess == wordElements[i]) {
-                var correct = document.createElement("span");
-                correct.innerHTML = userGuess;
-                word.appendChild(correct);
-            }
+            if (userGuess === wordElements[i]) {
+                wordElements[i].innerHTML = userGuess;
+            } else { };
         }
 
     }
